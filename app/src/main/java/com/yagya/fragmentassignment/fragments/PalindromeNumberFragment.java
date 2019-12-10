@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
 
@@ -41,6 +42,25 @@ public class PalindromeNumberFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        int num = Integer.parseInt(etnumber.getText().toString());
+
+        int i;
+        int r = 0;
+
+        int initialNum = num;
+
+        for (i = 0; i <= num; i++) {
+            r = r * 10;
+            r = r + num % 10;
+            num = num / 10;
+            i = 0;
+        }
+
+        if (r == initialNum) {
+            Toast.makeText(getActivity(),"The number is a Palindrome number", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(),"The number is not a Palindrome number", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }
