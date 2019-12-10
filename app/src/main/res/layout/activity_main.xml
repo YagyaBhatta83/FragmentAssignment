@@ -18,57 +18,60 @@
             android:layout_height="wrap_content"
             android:text="Area Of Circle"
             android:textSize="10sp"
-            android:id="@+id/btnFragment"
+            android:id="@+id/btnareaofcircle"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
+            android:layout_columnWeight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go To Area Of Circle Fragment"
+            android:text="ArmStrong Number"
             android:textSize="10sp"
-            android:id="@+id/btnFragment1"
+            android:id="@+id/btnarmstrong"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
+            android:layout_columnWeight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go To Area Of Circle Fragment"
+            android:text="Automorphic Number"
             android:textSize="10sp"
-            android:id="@+id/btnFragment2"
+            android:id="@+id/btnautomorphic"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
+            android:layout_columnWeight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go To Area Of Circle Fragment"
+            android:text="Palindrome Number"
             android:textSize="10sp"
-            android:id="@+id/btnFragment3"
+            android:id="@+id/btnpalindrome"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Go To Area Of Circle Fragment"
-            android:textSize="10sp"
-            android:id="@+id/btnFragment4"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
+            android:layout_columnWeight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go To Area Of Circle Fragment"
+            android:text="Simple Interest"
             android:textSize="10sp"
-            android:id="@+id/btnFragment5"
+            android:id="@+id/btnsimpleinterest"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="5dp"/>
+            android:layout_columnWeight="1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Swap Number"
+            android:textSize="10sp"
+            android:id="@+id/btnswap"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
 
     </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/fragView">
+
+    </LinearLayout>
+
 
 
 </LinearLayout>
