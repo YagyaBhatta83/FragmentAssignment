@@ -5,11 +5,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.yagya.fragmentassignment.R;
 
@@ -19,6 +21,7 @@ import com.yagya.fragmentassignment.R;
 public class SimpleInterestFragment extends Fragment implements View.OnClickListener {
     private Button btncalcsimpleinterest;
     private EditText etprinciple, ettime, etrate;
+    TextView res;
 
 
     public SimpleInterestFragment() {
@@ -35,6 +38,7 @@ public class SimpleInterestFragment extends Fragment implements View.OnClickList
         ettime = view.findViewById(R.id.ettime);
         etrate = view.findViewById(R.id.etrate);
         btncalcsimpleinterest = view.findViewById(R.id.btncalcsimpleinterest);
+        res = view.findViewById(R.id.Res);
 
         btncalcsimpleinterest.setOnClickListener(this);
 
@@ -43,6 +47,21 @@ public class SimpleInterestFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        if(TextUtils.isEmpty(etprinciple.getText())){
+            etprinciple.setError("please enter Principal");
+            return;
+        }else if (TextUtils.isEmpty(ettime.getText())) {
+            ettime.setError("Please enter Time");
+            return;
+        }else if(TextUtils.isEmpty(etrate.getText())){
+            etrate.setError("Please enter Rate");
+        }
+        float P, T, R, Result;
+        P = Float.parseFloat(etprinciple.getText().toString());
+        T = Float.parseFloat(ettime.getText().toString());
+        R = Float.parseFloat(etrate.getText().toString());
+        Result = P * T * R / 100;
+        res.setText(Result +"");
 
     }
 }
