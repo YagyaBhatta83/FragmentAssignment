@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
@@ -20,6 +21,7 @@ import com.yagya.fragmentassignment.R;
 public class SwapNumberFragment extends Fragment implements View.OnClickListener{
     private Button btncalcswap;
     private EditText etnumber1, etnumber2;
+    TextView res;
 
 
     public SwapNumberFragment() {
@@ -35,6 +37,7 @@ public class SwapNumberFragment extends Fragment implements View.OnClickListener
         etnumber1 = view.findViewById(R.id.etnumber1);
         etnumber2 = view.findViewById(R.id.etnumber2);
         btncalcswap = view.findViewById(R.id.btncalcswap);
+        res = view.findViewById(R.id.Res);
         btncalcswap.setOnClickListener(this);
 
         return view;
@@ -42,17 +45,23 @@ public class SwapNumberFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        int num1 = Integer.parseInt(etnumber1.getText().toString());
-        int num2 = Integer.parseInt(etnumber2.getText().toString());
-        int a=10, b=20;
-        num1=num1+num2;//a=30 (10+20)
-        num2=num1-num2;//b=10 (30-20)
-        num1=num1-num2;//a=20 (30-10)
+        if (etnumber1.getText().toString().isEmpty()) {
+            etnumber1.setError("please enter First Number!");
+            return;
+        }
+        else if (etnumber2.getText().toString().isEmpty()){
+            etnumber2.setError("Please Enter Second Number");
+        }else{
+            int fNum = Integer.parseInt(etnumber1.getText().toString());
+            int sNum = Integer.parseInt(etnumber2.getText().toString());
 
-        if (num1==num2){
-            Toast.makeText(getActivity(),"The number is a Swap number", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(getActivity(),"The number is not a Swap number", Toast.LENGTH_SHORT).show();
+            fNum = fNum + sNum;//a=30 (10+20)
+            sNum = fNum - sNum;//b=10 (30-20)
+            fNum = fNum - sNum;//a=20 (30-10)
+
+            res.setText("First number is :" + fNum + " Second number is : " + sNum);
+
+
         }
 
     }

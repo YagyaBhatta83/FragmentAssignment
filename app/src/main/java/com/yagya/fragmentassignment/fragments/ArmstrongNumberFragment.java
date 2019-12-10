@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
@@ -20,6 +21,7 @@ import com.yagya.fragmentassignment.R;
 public class ArmstrongNumberFragment extends Fragment implements View.OnClickListener {
     private Button btncalcarmstrong;
     private EditText etnumber;
+    TextView res;
 
 
     public ArmstrongNumberFragment() {
@@ -35,6 +37,7 @@ public class ArmstrongNumberFragment extends Fragment implements View.OnClickLis
 
         etnumber = view.findViewById(R.id.etnumber);
         btncalcarmstrong = view.findViewById(R.id.btncalcarmstrong);
+        res = view.findViewById(R.id.Res);
 
         btncalcarmstrong.setOnClickListener(this);
 
@@ -43,20 +46,27 @@ public class ArmstrongNumberFragment extends Fragment implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        int num = Integer.parseInt(etnumber.getText().toString());
-        int temp=num;
-        String t=temp+"";
-        int length = t.length();
-        int sum = 0;
-        while (temp!=0){
-            int digit=temp%10;
-            sum = sum+(int)Math.pow(digit, length);
-            temp=temp/10;
-        }
-        if (sum==num){
-            Toast.makeText(getActivity(),"The number is a Armstrong number", Toast.LENGTH_SHORT).show();
+        if (etnumber.getText().toString().isEmpty()){
+            etnumber.setError("please enter number!");
         }else {
-            Toast.makeText(getActivity(),"The number is not a Armstrong number", Toast.LENGTH_SHORT).show();
+            int num = Integer.parseInt(etnumber.getText().toString());
+            int temp = num;
+            String t = temp + "";
+            int length = t.length();
+            int sum = 0;
+            while (temp != 0) {
+                int digit = temp % 10;
+                sum = sum + (int) Math.pow(digit, length);
+                temp = temp / 10;
+
+            }
+            if (sum == num) {
+                res.setText("The number is a Armstrong number");
+
+            } else {
+                res.setText("The number is a not a Armstrong number");
+
+            }
         }
 
 

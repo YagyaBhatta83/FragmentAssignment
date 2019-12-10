@@ -12,18 +12,21 @@
         android:id="@+id/etprinciple"
         android:hint="Enter Principle"
         android:textSize="20sp"
+        android:inputType="numberDecimal"
         android:layout_margin="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ettime"
         android:hint="Enter Time"
+        android:inputType="numberDecimal"
         android:textSize="20sp"
         android:layout_margin="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etrate"
+        android:inputType="numberDecimal"
         android:hint="Enter Rate"
         android:textSize="20sp"
         android:layout_margin="10dp"/>

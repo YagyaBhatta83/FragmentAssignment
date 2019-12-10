@@ -12,6 +12,7 @@
         android:id="@+id/etnumber1"
         android:hint="Enter First Number"
         android:textSize="20sp"
+        android:inputType="number"
         android:layout_margin="10dp"/>
     <EditText
         android:layout_width="match_parent"
@@ -29,5 +30,12 @@
         android:text="Swap Number"
         android:textSize="20sp"
         android:layout_margin="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/Res"
+        android:textSize="50sp"></TextView>
 
 </LinearLayout>

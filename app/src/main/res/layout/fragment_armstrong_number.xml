@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/etnumber"
         android:hint="Enter Number"
+        android:inputType="number"
         android:textSize="20sp"
         android:layout_margin="10dp"/>
 
@@ -21,5 +22,12 @@
         android:text="Armstrong Number"
         android:textSize="20sp"
         android:layout_margin="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/Res"
+        android:textSize="50sp"></TextView>
 
 </LinearLayout>

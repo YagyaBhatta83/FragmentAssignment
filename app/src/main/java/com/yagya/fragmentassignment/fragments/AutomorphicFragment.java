@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
@@ -20,6 +21,7 @@ import com.yagya.fragmentassignment.R;
 public class AutomorphicFragment extends Fragment implements View.OnClickListener {
     private Button btncalcautomorphic;
     private EditText etnumber;
+    TextView res;
 
 
     public AutomorphicFragment() {
@@ -34,6 +36,7 @@ public class AutomorphicFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_automorphic, container, false);
         etnumber = view.findViewById(R.id.etnumber);
         btncalcautomorphic = view.findViewById(R.id.btncalcautomorphic);
+        res = view.findViewById(R.id.Res);
 
         btncalcautomorphic.setOnClickListener(this);
 
@@ -42,21 +45,27 @@ public class AutomorphicFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        int num = Integer.parseInt(etnumber.getText().toString());
-        int div, c=0, sq, rem;
-        c=0;
-        for (div=num;div>0;div=div/10){
-            c++;
-        }
-        div=(int)Math.pow(10,c);
-        sq = num*num;
-        rem = sq%div;
+        if (etnumber.getText().toString().isEmpty()) {
+            etnumber.setError("please enter number!");
+        } else {
+            int num = Integer.parseInt(etnumber.getText().toString());
+            int div, c = 0, sq, rem;
+            c = 0;
+            for (div = num; div > 0; div = div / 10) {
+                c++;
+            }
+            div = (int) Math.pow(10, c);
+            sq = num * num;
+            rem = sq % div;
 
-        if (rem==num){
-            Toast.makeText(getActivity(),"The number is a Automorphic number", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(getActivity(),"The number is not a Automorphic number", Toast.LENGTH_SHORT).show();
-        }
+            if (rem == num) {
+                res.setText("The number is a Automorphic number");
 
+            } else {
+                res.setText("The number is not a Automorphic number");
+
+            }
+
+        }
     }
 }

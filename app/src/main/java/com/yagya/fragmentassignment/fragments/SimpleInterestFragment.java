@@ -53,15 +53,15 @@ public class SimpleInterestFragment extends Fragment implements View.OnClickList
         }else if (TextUtils.isEmpty(ettime.getText())) {
             ettime.setError("Please enter Time");
             return;
-        }else if(TextUtils.isEmpty(etrate.getText())){
-            etrate.setError("Please enter Rate");
+        }else if (etrate.getText().toString().isEmpty()) {
+            etrate.setError("please enter rate!");
         }
-        float P, T, R, Result;
-        P = Float.parseFloat(etprinciple.getText().toString());
-        T = Float.parseFloat(ettime.getText().toString());
-        R = Float.parseFloat(etrate.getText().toString());
-        Result = P * T * R / 100;
-        res.setText(Result +"");
-
+            float P, T, R, Result;
+            P = Float.parseFloat(etprinciple.getText().toString());
+            T = Float.parseFloat(ettime.getText().toString());
+            R = Float.parseFloat(etrate.getText().toString());
+            Result = P * T * R / 100;
+            res.setText(Result + "");
     }
+
 }

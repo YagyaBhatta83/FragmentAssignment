@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
@@ -20,6 +21,7 @@ import com.yagya.fragmentassignment.R;
 public class PalindromeNumberFragment extends Fragment implements View.OnClickListener {
     private Button btncalcpalindrome;
     private EditText etnumber;
+    TextView res;
 
 
     public PalindromeNumberFragment() {
@@ -34,6 +36,7 @@ public class PalindromeNumberFragment extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_palindrome_number, container, false);
         etnumber = view.findViewById(R.id.etnumber);
         btncalcpalindrome = view.findViewById(R.id.btncalcpalindrome);
+        res = view.findViewById(R.id.Res);
 
         btncalcpalindrome.setOnClickListener(this);
 
@@ -42,24 +45,30 @@ public class PalindromeNumberFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        int num = Integer.parseInt(etnumber.getText().toString());
+        if (etnumber.getText().toString().isEmpty()) {
+            etnumber.setError("please enter number!");
+        }else {
+            int num = Integer.parseInt(etnumber.getText().toString());
 
-        int i;
-        int r = 0;
+            int i;
+            int r = 0;
 
-        int initialNum = num;
+            int initialNum = num;
 
-        for (i = 0; i <= num; i++) {
-            r = r * 10;
-            r = r + num % 10;
-            num = num / 10;
-            i = 0;
-        }
+            for (i = 0; i <= num; i++) {
+                r = r * 10;
+                r = r + num % 10;
+                num = num / 10;
+                i = 0;
+            }
 
-        if (r == initialNum) {
-            Toast.makeText(getActivity(),"The number is a Palindrome number", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getActivity(),"The number is not a Palindrome number", Toast.LENGTH_SHORT).show();
+            if (r == initialNum) {
+                res.setText("The number is a Palindrome number");
+
+            } else {
+                res.setText("The number is not a Palindrome number");
+
+            }
         }
 
     }
