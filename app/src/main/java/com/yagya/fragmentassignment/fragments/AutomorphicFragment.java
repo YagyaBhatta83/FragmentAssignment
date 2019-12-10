@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yagya.fragmentassignment.R;
 
@@ -41,7 +42,21 @@ public class AutomorphicFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        int num = Integer.parseInt(etnumber.getText().toString());
+        int div, c=0, sq, rem;
+        c=0;
+        for (div=num;div>0;div=div/10){
+            c++;
+        }
+        div=(int)Math.pow(10,c);
+        sq = num*num;
+        rem = sq%div;
 
+        if (rem==num){
+            Toast.makeText(getActivity(),"The number is a Automorphic number", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getActivity(),"The number is not a Automorphic number", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }
